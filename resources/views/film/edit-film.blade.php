@@ -1,0 +1,122 @@
+@extends('layouts.app')
+@section('title', 'Edit Data Film')
+
+@section('main')
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Edit Data Film</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('/film') }}">Film</a></li>
+        <li class="breadcrumb-item active">Edit Data</li>
+    </ol>
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="post" action="{{ url('/film/update') }}" enctype="multipart/form-data"> @csrf
+                <input type="hidden" name="id" value="{{ $data->id }}"/>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Judul</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="judul" value="{{ $data->judul }}" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Kategori</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="kategori" value="{{ $data->kategori }}" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Durasi</label>
+                            <div class="col-sm-3">
+                                <input type="number" class="form-control" name="durasi" value="{{ $data->durasi }}" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control-plaintext" value="Menit">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Rating Usia</label>
+                            <div class="col-sm-3">
+                                <input type="number" class="form-control" name="rating_usia" value="{{ $data->rating_usia }}" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control-plaintext" value="Tahun"/>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Sinopsis</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" name="sinopsis" rows="5">{{ $data->sinopsis }}</textarea>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Foto</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control" name="foto">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Trailer</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="trailer" placeholder="Masukan Link Youtube Trailer" value="{{ $data->trailer }}">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Produser</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="produser" value="{{ $data->produser }}" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Sutradara</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="sutradara" value="{{ $data->sutradara }}" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Penulis</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="penulis" value="{{ $data->penulis }}" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Produksi</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="produksi" value="{{ $data->produksi }}" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Cast</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="cast" value="{{ $data->cast }}" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Tanggal Tayang</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" name="tanggal_awal" value="{{ $data->tanggal_awal }}" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label">Tanggal Selesai</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" name="tanggal_akhir" value="{{ $data->tanggal_akhir }}" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 row"></div>
+                        <div class="mb-3 row">
+                            <button type="submit" class="btn btn-success">Update</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>  
+@endsection
